@@ -64,7 +64,6 @@ func (s *MySQLAdapter) Update(eventID string, userID string) error {
 		return fmt.Errorf("event date is in the past")
 	}
 	
-	fmt.Println("event.Status", event.Status)
 	if event.Status != "published" {
 		return fmt.Errorf("event is not published")
 	}

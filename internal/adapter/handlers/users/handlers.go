@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 	"strings"
 
@@ -84,13 +83,11 @@ func (r *UserRestAdapter) Login(c *gin.Context) {
 	}
 
 	user, err := r.UserRepository.GetByUsername(loginRequest.Username)
-	fmt.Println(user)
 	if err != nil {
 		c.JSON(http.StatusNotFound, gin.H{
 			"error":   "User not found",
 			"success": false,
 		})
-		fmt.Println(err)
 		return
 	}
 
@@ -102,7 +99,6 @@ func (r *UserRestAdapter) Login(c *gin.Context) {
 		})
 		return
 	}
-	fmt.Println("Match:   ", match)
 
 	claims := utils.SignTokenClaims{
 		Id:       user.ID.String(),

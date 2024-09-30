@@ -36,7 +36,6 @@ func Authenticate(token string) (result *jwt.Token, err error) {
 func SignToken(claims SignTokenClaims) (tokenString string, err error) {
 	duration, err := time.ParseDuration(expiryTime)
 	if err != nil {
-		fmt.Println("Error parsing duration:", err)
 		return "", err
 	}
 

@@ -2,7 +2,6 @@ package adapters
 
 import (
 	"emma/internal/domain"
-	"fmt"
 	"strings"
 	"time"
 
@@ -72,7 +71,6 @@ func (s *MySQLAdapter) GetAllEvents(status, title, date string) ([]domain.Event,
 	query := s.DB
 
 	if status != "" {
-		fmt.Println("status", status)
 		query = query.Where("status = ?", status)
 	}
 
