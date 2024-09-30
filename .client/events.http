@@ -1,0 +1,45 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJTdGFuZGFyZENsYWltcyI6eyJleHAiOjE3Mjc4MTQ0MTZ9LCJpZCI6IjZhMDQxY2RkLWRlZGYtNDRkZC05OGZjLWViYWE1MDZkNWNhYiIsInJvbGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.xyJOky16dZqBlhhUySdgslnEzyyZBSYdxyUz2BoeoDA
+@userId=6a041cdd-dedf-44dd-98fc-ebaa506d5cab
+@id=6747dcd8-1bab-44ee-9915-20a3b327719a
+### Fetch Event
+GET http://localhost:8080/events/{{id}}
+Authorization: Bearer {{token}}
+
+### Create Event
+POST http://localhost:8080/events
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "cccccccccccccc",
+  "short_description": "This is a new event 4",
+  "long_description": "This is a new event 4",
+  "date": "2023-11-01T15:00:00Z",
+  "organizer_id": "{{userId}}",
+  "location": "New York",
+  "status": "published"
+}
+
+### Update Event
+PUT http://localhost:8080/events/{{id}}
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "title": "Updated Event",
+  "short_description": "This event has been updated",
+  "date": "2024-11-01T16:00:00Z",
+  "status": "published"
+}
+
+### Delete Event
+DELETE http://localhost:8080/events/{{id}}
+Authorization: Bearer {{token}}
+
+### Get All Events
+GET http://localhost:8080/events
+Authorization: Bearer {{token}}
+
+### Get All Events with Filters
+GET http://localhost:8080/events?status=draft&date=2024-11-01T15:00:00Z
+Authorization: Bearer {{token}}
